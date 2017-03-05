@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: GuestIt2_development
+
+test:
+  <<: *default
+  database: GuestIt2_test
+
+production:
+  <<: *default
+  database: GuestIt2_production
+  #username: GuestIt2
+  #password: <%= ENV['GUESTIT2_DATABASE_PASSWORD'] %>
